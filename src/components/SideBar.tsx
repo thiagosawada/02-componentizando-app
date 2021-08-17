@@ -4,7 +4,11 @@ import { useMovie } from '../contexts/MovieContext';
 import '../styles/sidebar.scss';
 
 export function SideBar() {
-  const { genres, handleClickButton, selectedGenreId } = useMovie()
+  const { genres, setSelectedGenreId, selectedGenreId } = useMovie()
+
+  function handleClickButton(id: number) {
+    setSelectedGenreId(id);
+  }
 
   return (
     <nav className="sidebar">

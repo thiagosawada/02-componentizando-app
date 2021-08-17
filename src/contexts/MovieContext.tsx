@@ -28,7 +28,7 @@ interface MovieContextData {
   genres: Genre[];
   movies: Movie[];
   selectedGenre: Genre;
-  handleClickButton: (id: number) => void;
+  setSelectedGenreId: (id: number) => void;
 }
 
 export function MovieContextProvider({ children }: MovieContextProviderProps) {
@@ -53,17 +53,13 @@ export function MovieContextProvider({ children }: MovieContextProviderProps) {
     })
   }, [selectedGenreId]);
 
-  function handleClickButton(id: number) {
-    setSelectedGenreId(id);
-  }
-
   return (
     <MovieContext.Provider value={{
       selectedGenreId,
       genres,
       movies,
       selectedGenre,
-      handleClickButton
+      setSelectedGenreId
     }}>
       { children }
     </MovieContext.Provider>
